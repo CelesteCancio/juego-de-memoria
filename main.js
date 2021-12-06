@@ -1,8 +1,14 @@
 const tablero = document.querySelector("#tablero");
 const fichas = tablero.querySelectorAll(".ficha");
+const numeroRonda = document.querySelector(".numero-ronda");
+const finDelJuego = document.querySelector(".finDelJuego");
 
-let fichasJugadorMano = [];
-let fichasJugadorAcumuladas = [];
+let turnos = 0;
+const sonidoClickFichaMostrar = new Audio ("./sonidos/button-click-sound-effect.mp3");
+//const sonidoClickFichaOcultar = new Audio ("./sonidos/boing-sound-effect.mp3");
+const sonidoFinDelJuego = new Audio (".sonidos/Ending-sound-effect.mp3");
+const sonidoAcierto = new Audio ("./sonidos/success-sound-effect.mp3");
+let primeraFicha = null;
 
 
 configurarJuego();
@@ -12,7 +18,7 @@ function configurarJuego (){
     const imagenesFichas = ["hogwarts","gryffindor","hufflepuff","ravenclaw","slytherin","sorting","snitch","anden"];
     imagenesFichasRepetidos = imagenesFichas.concat(imagenesFichas);
     configurarCuadros(fichas,imagenesFichasRepetidos);
-    
+    manejarEventos();    
 }
 
 function configurarCuadros (fichas,imagenesFichasRepetidos){
@@ -28,6 +34,76 @@ function configurarCuadros (fichas,imagenesFichasRepetidos){
     });
 }
 
+function manejarEventos(){
+    tablero.onclick = function (e){
+        const fichaClickeada = e.target;
+        if (fichaClickeada.classList.contains("ficha")){
+            manejarClickFicha(fichaClickeada);
+        }
+    };
+}
+
+function manejarClickFicha (fichaClickeada){
+    mostrarFicha (fichaClickeada);
+
+    if (primeraFicha === null){
+        primeraFicha = fichaClickeada;
+    }
+    else {
+        if (fichaClickeada === primeraFicha){
+            return;
+        }
+        if (fichasSonIguales (fichaClickeada,primeraFicha)) {
+            sonidoAcierto.play();
+            eliminarFicha(fichaClickeada);
+            eliminarFicha(primeraFicha);
+        }
+        else{
+            ocultarFicha(fichaClickeada);
+            ocultarFicha(primeraFicha);
+        }
+
+        turnos++;
+        numeroRonda.textContent = turnos;
+        primeraFicha = null;
+    }
+}
+
+
+function mostrarFicha (fichaClickeada){    
+    fichaClickeada.style.opacity = 1;    
+    sonidoClickFichaMostrar.play();
+}
+
+function ocultarFicha (fichaAOcultar){
+    setTimeout (function (){
+        fichaAOcultar.style.opacity = 0;
+        //sonidoClickFichaOcultar.play();
+    },1000);    
+}
+
+function fichasSonIguales (fichaClickeada,primeraFicha){
+    return fichaClickeada.className === primeraFicha.className;    
+}
+
+function eliminarFicha (fichaAEliminar){
+    setTimeout (function (){
+        fichaAEliminar.parentElement.classList.add("adivinado");
+        fichaAEliminar.remove();
+        evaluarFinDeJuego();
+    },1000);
+}
+
+function evaluarFinDeJuego (){
+    
+    console.log(`en evaluarFinDeJuego, tablero.querySelectorAll(".ficha").length = ${tablero.querySelectorAll(".ficha").length}`);
+
+    if (tablero.querySelectorAll(".ficha").length === 0){
+        tablero.style.display = "none";
+        finDelJuego.style.display = "block";
+        sonidoFinDelJuego.play();
+    }
+}
 
 // crono();
 
@@ -68,42 +144,42 @@ function jugar (){
 
 //mostrar();
 
-function mostrar (e){
-    console.log(`en function mostrar`);
-    // for (let i=0; i<fichas.length; i++){        
+// function mostrar (e){
+//     console.log(`en function mostrar`);
+//     // for (let i=0; i<fichas.length; i++){        
         
-    //         fichas[i].onclick = function (e){
-    //             //console.log(fichas[i]);
+//     //         fichas[i].onclick = function (e){
+//     //             //console.log(fichas[i]);
                 
                 
-    //                 console.log(`en function e`);
-    //                 fichas[i].style.opacity = 1;   
-    //                 console.log(fichas[i]);
-    //                 console.log(e.target);                      
-    //                 fichasJugadorMano.push(e.target);
-    //                 console.log(`en function e`);
-    //                 console.log(fichasJugadorMano);
+//     //                 console.log(`en function e`);
+//     //                 fichas[i].style.opacity = 1;   
+//     //                 console.log(fichas[i]);
+//     //                 console.log(e.target);                      
+//     //                 fichasJugadorMano.push(e.target);
+//     //                 console.log(`en function e`);
+//     //                 console.log(fichasJugadorMano);
                                 
-    //                 // console.log(`en el else`);
-    //                 // fichas[i].style.cursor = "default";
-    //                 // return;
+//     //                 // console.log(`en el else`);
+//     //                 // fichas[i].style.cursor = "default";
+//     //                 // return;
                                 
-    //         }
-    //     }        
+//     //         }
+//     //     }        
     
 
 
-        if(fichasJugadorMano.length<2){
-            const fichaClickeada = e.target;
-            fichaClickeada.style.opacity = 1;
-            fichasJugadorMano.push(fichaClickeada);
+//         if(fichasJugadorMano.length<2){
+//             const fichaClickeada = e.target;
+//             fichaClickeada.style.opacity = 1;
+//             fichasJugadorMano.push(fichaClickeada);
             
-            console.log(`en if mostrar ${fichasJugadorMano.length}`);
-            console.log(fichasJugadorMano);
-        }
+//             console.log(`en if mostrar ${fichasJugadorMano.length}`);
+//             console.log(fichasJugadorMano);
+//         }
                     
-            console.log(`en else`);
-            jugar();
+//             console.log(`en else`);
+//             jugar();
         
         
 
@@ -111,19 +187,13 @@ function mostrar (e){
 
            
         
-        // fichas[i].onmouseover = function (){
-        //     fichas[i].style.cursor = "pointer";
-        // };        
+//         // fichas[i].onmouseover = function (){
+//         //     fichas[i].style.cursor = "pointer";
+//         // };        
     
     
-}
+// }
 
-function ocultar (fichasJugadorMano){
-    setTimeout(function(){
-        fichasJugadorMano[0].style.opacity = 0;
-        fichasJugadorMano[1].style.opacity = 0;
-    },2000);
-}
 
 // function crono(){
 //     console.log(`en crono`)
