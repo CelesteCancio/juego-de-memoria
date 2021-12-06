@@ -9,8 +9,9 @@ body {
 	align-items: center;
 	justify-content: center;
 	color: blueviolet;
-	opacity: 1;
+	/* opacity: 0; */
 	transition: opacity 500ms;
+    
 	cursor: pointer;
 }
 
@@ -20,7 +21,7 @@ body {
 
 #cabecera {
 	border: 3px solid gray;
-	height: 7vh;
+	height: 10vh;
 }
 
 #todo {
@@ -28,7 +29,7 @@ body {
 }
 
 #tablero {
-	height: 93vh;
+	height: 90vh;
 }
 
 p{
@@ -88,6 +89,15 @@ p{
     background-repeat: no-repeat;
 }
 
+.adivinado {
+    background-image: url(./imagenes/minis/castillo.png);
+    background-size: cover;
+}
+
+.finDelJuego {
+    display: none;
+}
+
 @media (min-width: 340px) and (max-width: 600px) { 
     .hogwarts {
         background-image: url(./imagenes/chicas/hogwarts.png);       
@@ -116,6 +126,10 @@ p{
 
     .columna-juego {
         border: 3px solid gray;
+    }
+
+    .adivinado {
+        background-image: url(./imagenes/chicas/castillo.png);
     }
 
  }
@@ -161,5 +175,9 @@ p{
 
     p{
         font-size: 18px;
+    }
+
+    .adivinado {
+        background-image: url(./imagenes/castillo.png);
     }
 }
