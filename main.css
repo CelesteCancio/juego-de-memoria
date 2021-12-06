@@ -1,61 +1,165 @@
-body{
-    height: 100vh;
+body {
+	height: 100vh;
+    font-family: 'Cinzel', serif;
 }
 
 .ficha {
-    font-weight: bold;
-    font-size: xx-large;
-    align-items: center;
-    justify-content: center;
-    color: blueviolet;
-    opacity: 1;
-    transition: opacity 500ms;
-    cursor: pointer;
-    
+	font-weight: bold;
+	font-size: xx-large;
+	align-items: center;
+	justify-content: center;
+	color: blueviolet;
+	opacity: 1;
+	transition: opacity 500ms;
+	cursor: pointer;
 }
 
 .columna-juego {
-    border: 4px solid gray;
+	border: 2px solid gray;
 }
 
-#cabecera{
-    border: 5px solid gray;
-    height: 10vh;
+#cabecera {
+	border: 3px solid gray;
+	height: 7vh;
 }
 
-#todo{
-    height: 100vh;
+#todo {
+	height: 100vh;
 }
 
-#tablero{
-    height: 90vh;
+#tablero {
+	height: 93vh;
 }
 
-.fila-juego{
-    height: 25%;
+p{
+    font-size: 14px;
 }
 
-.hogwarts{
-    background-image: url(./imagenes/hogwarts.png);
+.fila-juego {
+	height: 25%;
 }
-.gryffindor{
-    background-image: url(./imagenes/gryffindor.png);
+
+.hogwarts {
+	background-image: url(./imagenes/minis/hogwarts.png);
+	background-size: auto;
+    background-position:center;
+    background-repeat: no-repeat;
 }
-.hufflepuff{
-    background-image: url(./imagenes/hufflepuff.png);
+.gryffindor {
+	background-image: url(./imagenes/minis/gryffindor.png);
+	background-size: auto;
+    background-position:center;
+    background-repeat: no-repeat;
 }
-.ravenclaw{
-    background-image: url(./imagenes/ravenclaw.png);
+.hufflepuff {
+	background-image: url(./imagenes/minis/hufflepuff.png);
+	background-size: auto;
+    background-position:center;
+    background-repeat: no-repeat;
 }
-.slytherin{
-    background-image: url(./imagenes/slytherin.png);
+.ravenclaw {
+	background-image: url(./imagenes/minis/ravenclaw.png);
+	background-size: auto;
+    background-position:center;
+    background-repeat: no-repeat;
 }
-.sorting{
-    background-image: url(./imagenes/sorting.png);
+.slytherin {
+	background-image: url(./imagenes/minis/slytherin.png);
+	background-size: auto;	
+    background-position:center;
+    background-repeat: no-repeat;
 }
-.snitch{
-    background-image: url(./imagenes/snitch.png);
+.sorting {
+	background-image: url(./imagenes/minis/sorting.png);
+	background-size: auto;
+    background-position:center;
+    background-repeat: no-repeat;
 }
-.anden{
-    background-image: url(./imagenes/934.png);
+.snitch {
+	background-image: url(./imagenes/minis/snitch.png);
+	background-size:auto;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+.anden {
+	background-image: url(./imagenes/minis/anden.png);
+	background-size: auto;
+    background-position:center;
+    background-repeat: no-repeat;
+}
+
+@media (min-width: 340px) and (max-width: 600px) { 
+    .hogwarts {
+        background-image: url(./imagenes/chicas/hogwarts.png);       
+    }
+    .gryffindor {
+        background-image: url(./imagenes/chicas/gryffindor.png);
+    }
+    .hufflepuff {
+        background-image: url(./imagenes/chicas/hufflepuff.png);
+    }
+    .ravenclaw {
+        background-image: url(./imagenes/chicas/ravenclaw.png);
+    }
+    .slytherin {
+        background-image: url(./imagenes/chicas/slytherin.png);
+    }
+    .sorting {
+        background-image: url(./imagenes/chicas/sorting.png);
+    }
+    .snitch {
+        background-image: url(./imagenes/chicas/snitch.png);
+    }
+    .anden {
+        background-image: url(./imagenes/chicas/anden.png);
+    }
+
+    .columna-juego {
+        border: 3px solid gray;
+    }
+
+ }
+
+@media (min-width: 600px) { 
+    .hogwarts {
+        background-image: url(./imagenes/hogwarts.png);        
+    }
+    .gryffindor {
+        background-image: url(./imagenes/gryffindor.png);
+    }
+    .hufflepuff {
+        background-image: url(./imagenes/hufflepuff.png);
+    }
+    .ravenclaw {
+        background-image: url(./imagenes/ravenclaw.png);
+    }
+    .slytherin {
+        background-image: url(./imagenes/slytherin.png);
+    }
+    .sorting {
+        background-image: url(./imagenes/sorting.png);
+    }
+    .snitch {
+        background-image: url(./imagenes/snitch.png);
+    }
+    .anden {
+        background-image: url(./imagenes/anden.png);
+    }
+
+    .columna-juego {
+        border: 4px solid gray;
+    }
+
+    #cabecera {
+        border: 5px solid gray;
+        height: 10vh;
+    }
+       
+    #tablero {
+        height: 90vh;
+    }
+
+    p{
+        font-size: 18px;
+    }
 }
