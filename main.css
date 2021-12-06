@@ -1,0 +1,61 @@
+body{
+    height: 100vh;
+}
+
+.ficha {
+    font-weight: bold;
+    font-size: xx-large;
+    align-items: center;
+    justify-content: center;
+    color: blueviolet;
+    opacity: 1;
+    transition: opacity 500ms;
+    cursor: pointer;
+    
+}
+
+.columna-juego {
+    border: 4px solid gray;
+}
+
+#cabecera{
+    border: 5px solid gray;
+    height: 10vh;
+}
+
+#todo{
+    height: 100vh;
+}
+
+#tablero{
+    height: 90vh;
+}
+
+.fila-juego{
+    height: 25%;
+}
+
+.hogwarts{
+    background-image: url(./imagenes/hogwarts.png);
+}
+.gryffindor{
+    background-image: url(./imagenes/gryffindor.png);
+}
+.hufflepuff{
+    background-image: url(./imagenes/hufflepuff.png);
+}
+.ravenclaw{
+    background-image: url(./imagenes/ravenclaw.png);
+}
+.slytherin{
+    background-image: url(./imagenes/slytherin.png);
+}
+.sorting{
+    background-image: url(./imagenes/sorting.png);
+}
+.snitch{
+    background-image: url(./imagenes/snitch.png);
+}
+.anden{
+    background-image: url(./imagenes/934.png);
+}
