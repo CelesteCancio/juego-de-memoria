@@ -9,7 +9,7 @@ body {
 	align-items: center;
 	justify-content: center;
 	color: blueviolet;
-	/* opacity: 0; */
+	opacity: 0;
 	transition: opacity 500ms;
     
 	cursor: pointer;
