@@ -79,7 +79,7 @@ function ocultarFicha (fichaAOcultar){
     setTimeout (function (){
         fichaAOcultar.style.opacity = 0;
         //sonidoClickFichaOcultar.play();
-    },1000);    
+    },500);    
 }
 
 function fichasSonIguales (fichaClickeada,primeraFicha){
@@ -91,7 +91,7 @@ function eliminarFicha (fichaAEliminar){
         fichaAEliminar.parentElement.classList.add("adivinado");
         fichaAEliminar.remove();
         evaluarFinDeJuego();
-    },1000);
+    },500);
 }
 
 function evaluarFinDeJuego (){
