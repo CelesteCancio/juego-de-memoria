@@ -13,11 +13,13 @@ let primeraFicha = null;
 
 configurarJuego();
 
+
 function configurarJuego (){
     console.log(`en conf juego`);
     const imagenesFichas = ["hogwarts","gryffindor","hufflepuff","ravenclaw","slytherin","sorting","snitch","anden"];
     imagenesFichasRepetidos = imagenesFichas.concat(imagenesFichas);
     configurarCuadros(fichas,imagenesFichasRepetidos);
+    //crono();
     manejarEventos();    
 }
 
@@ -104,10 +106,6 @@ function evaluarFinDeJuego (){
         sonidoFinDelJuego.play();
     }
 }
-
-// crono();
-
-
 // function crono(){
 //     console.log(`en crono`)
 //     let contador_segundos = 0;
@@ -117,20 +115,20 @@ function evaluarFinDeJuego (){
 //     const minutos = document.querySelector("#minutos");
 //     const horas = document.querySelector("#horas");
 
-//     // window.setInterval(function(){
-//     //     console.log(`en window set interval`)
-//     //     if(contador_segundos===60){
-//     //         contador_segundos=0;
-//     //         contador_minutos++;
-//     //         if(contador_minutos===60){
-//     //             contador_minutos=0;
-//     //             contador_horas++;
-//     //         }
+//     window.setInterval(function(){
+//         console.log(`en window set interval`)
+//         if(contador_segundos===60){
+//             contador_segundos=0;
+//             contador_minutos++;
+//             if(contador_minutos===60){
+//                 contador_minutos=0;
+//                 contador_horas++;
+//             }
 
-//     //         segundos.innerHTML = contador_segundos;
-//     //         minutos.innerHTML = contador_minutos;
-//     //         horas.innerHTML = contador_horas;
-//     //     }
-//     // },1000);
+//             segundos.innerHTML = contador_segundos;
+//             minutos.innerHTML = contador_minutos;
+//             horas.innerHTML = contador_horas;
+//         }
+//     },1000);
 // }
 
