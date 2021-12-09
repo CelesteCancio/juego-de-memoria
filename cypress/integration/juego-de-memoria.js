@@ -1,10 +1,12 @@
-//1. Arrange - setup initial app state        
-//2. Act - take an action
-//3. Assert - make an assertion
+// 
 
 const URL = "http://127.0.0.1:5500/index.html";
 const numero_fichas = 16;
 const fraseFinDeJuego = "Terminaste!";
+
+Cypress.on('uncaught:exception', (err, runnable) => {
+   return false;
+ });
 
 context ("Juego de memoria", ()=>{
      before(() => {
