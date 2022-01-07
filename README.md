@@ -1,5 +1,5 @@
 # juego-de-memoria
- Juego memotest
+ Juego de memoria (memotest) desarrollado para el curso r/Argentina Programa
 
  ## instalacion 
  Correr
